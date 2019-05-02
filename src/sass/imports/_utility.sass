@@ -1,0 +1,21 @@
+$font-stack:    'Assistant', sans-serif
+$primary-color: #565656
+$light-color: #b4b4b3
+$header-link-color: #8d8b87
+$link-color: #00b7bd
+$active-color: #e37222
+$separator-color: #f0f0f0
+$bg-color: #fff
+$text-decoration-color: #bebebd
+$table-head-border-color: #eaeced
+
+@mixin desktop-small
+  @media (max-width: 1280px) and (min-width: 1025px)
+    @content
+@mixin tab-landscape
+  @media (max-width: 1024px)
+    @content
+
+@mixin tab
+  @media (max-width: 768px)
+    @content

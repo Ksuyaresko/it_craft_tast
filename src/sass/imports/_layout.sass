@@ -1,0 +1,211 @@
+.wrapper
+  max-width: 1366px
+  margin: 0 auto
+  min-width: 768px
+.header
+  padding: 10px 10px 5px
+  border-bottom: 1px solid $separator-color
+  font-size: 14px
+  &__wrapper
+    display: flex
+    align-items: center
+  &__logo
+    display: block
+    margin-right: auto
+    width: 105px
+    height: 40px
+  &__link
+    text-decoration: none
+    color: $header-link-color
+    padding: 0px 18px 4px
+  &__svg
+    width: 20px
+    height: 18px
+    margin-right: 10px
+    vertical-align: middle
+  &__user
+    padding: 7px 40px 10px 30px
+    background-image: url('../img/user-header-icon.jpg')
+    background-repeat: no-repeat
+    background-position: center right
+    cursor: pointer
+  &__user-svg
+    width: 14px
+    height: 8px
+    margin-left: 8px
+.main
+  &__wrapper
+    position: relative
+    padding: 0 0 0 50px
+.aside
+  font-size: 16px
+  padding: 20px 0px 10px 10px
+  background-color: $bg-color
+  position: absolute
+  z-index: 1
+  top: 0
+  left: 0
+  max-width: 50px
+  min-width: 50px
+  overflow: hidden
+  transition: 1s min-width ease-out
+  &--opened
+    min-width: 160px
+    transition: 1s min-width ease-out
+    .aside__btn
+      span
+        left: 7px
+        transition: 1s left ease-out
+      &::before
+        transform: rotate(-45deg)
+        right: 7px
+      &::after
+        transform: rotate(45deg)
+        right: 7px
+  &--opening
+    .aside__btn
+      span
+        &:nth-child(1)
+          animation: menuBtnSpan1 1s
+        &:nth-child(3)
+          animation: menuBtnSpan3 1s
+      &::before
+        animation: menuBtnBefore 1s
+      &::after
+        animation: menuBtnAfter 1s
+  &--closing
+    .aside__btn
+      span
+        &:nth-child(1)
+          animation: menuBtnSpan1 1s
+        &:nth-child(3)
+          animation: menuBtnSpan3 1s
+      &::before
+        transform: rotate(45deg)
+        animation: menuBtnBeforeClosing 1s
+      &::after
+        transform: rotate(-45deg)
+        animation: menuBtnAfterClosing 1s
+  &__btn
+    position: absolute
+    top: 5px
+    right: 5px
+    width: 13px
+    height: 10px
+    cursor: pointer
+    span
+      position: absolute
+      left: 0
+      height: 2px
+      width: 5px
+      background-color: $active-color
+      border-radius: 1px
+      transition: 1s left ease-out
+      &:nth-child(1)
+        top: 0
+      &:nth-child(2)
+        top: 4px
+      &:nth-child(3)
+        top: 8px
+    &::before, &::after
+      content: ""
+      position: absolute
+      right: 0
+      height: 2px
+      width: 7px
+      border-radius: 1px
+      background-color: $active-color
+      transition: right 0.4s
+    &::before
+      transform: rotate(45deg)
+      top: 2px
+    &::after
+      transform: rotate(-45deg)
+      top: 6px
+  &__item
+    padding: 10px 10px 10px 5px
+    position: relative
+    cursor: pointer
+    white-space: nowrap
+    &.--active
+      color: $active-color
+      .aside__svg
+        stroke: $active-color
+        fill: $active-color
+      &:after
+        content: ""
+        position: absolute
+        top: 0
+        right: 0
+        height: 100%
+        width: 2px
+        background-color: $active-color
+  &__item-title
+    //display: none
+  &__svg
+    width: 20px
+    height: 20px
+    vertical-align: middle
+    margin-right: 11px
+    stroke: #6C6A67
+    fill: #6C6A67
+
+@keyframes menuBtnBefore
+  0%
+    transform: rotate(45deg) translate(0, 0)
+  40%
+    transform: rotate(0deg) translate(0, 2px)
+  70%
+    transform: rotate(0deg) translate(0, 2px)
+  100%
+    transform: rotate(-45deg) translate(0, 0)
+
+@keyframes menuBtnBeforeClosing
+  0%
+    transform: rotate(-45deg) translate(0, 0)
+  40%
+    transform: rotate(0deg) translate(0, 2px)
+  70%
+    transform: rotate(0deg) translate(0, 2px)
+  100%
+    transform: rotate(45deg) translate(0, 0)
+
+@keyframes menuBtnAfter
+  0%
+    transform: rotate(-45deg) translate(0, 0)
+  40%
+    transform: rotate(0deg) translate(0, -2px)
+  70%
+    transform: rotate(0deg) translate(0, -2px)
+  100%
+    transform: rotate(45deg) translate(0, 0)
+
+@keyframes menuBtnAfterClosing
+  0%
+    transform: rotate(45deg) translate(0, 0)
+  40%
+    transform: rotate(0deg) translate(0, -2px)
+  70%
+    transform: rotate(0deg) translate(0, -2px)
+  100%
+    transform: rotate(-45deg) translate(0, 0)
+
+@keyframes menuBtnSpan1
+  0%
+    transform: translate(0, 0)
+  40%
+    transform: translate(0, 4px)
+  70%
+    transform: translate(0, 4px)
+  100%
+    transform: translate(0, 0)
+
+@keyframes menuBtnSpan3
+  0%
+    transform: translate(0, 0)
+  40%
+    transform: translate(0, -4px)
+  70%
+    transform: translate(0, -4px)
+  100%
+    transform: translate(0, 0)

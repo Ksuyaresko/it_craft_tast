@@ -1,0 +1,55 @@
+body
+  margin: 0
+  font-family: $font-stack
+  color: $primary-color
+  font-weight: 300
+svg
+  max-width: 100%
+  max-height: 100%
+*
+  box-sizing: border-box
+.search-icon
+  display:
+  width: 20px
+  height: 20px
+.checkbox
+  display: inline-block
+  width: 20px
+  height: 20px
+  position: relative
+  input
+    display: none
+    &+svg
+      position: absolute
+      transform: scale(0)
+      transition: transform 0.2s ease-out
+    &:checked+svg
+      transform: scale(1)
+      transition: 0.2s transform 0.2s ease-out
+    &~span
+      position: absolute
+      left: 0
+      width: 20px
+      height: 20px
+      border: 1px solid $light-color
+      border-radius: 2px
+      transform: scale(1)
+      transition: 0.2s transform 0.2s ease-out
+    &:checked~span
+      transform: scale(0)
+      transition: transform 0.2s ease-out
+
+select
+  color: inherit
+  font-size: inherit
+  font-family: inherit
+  width: 100%
+  border-top: 0
+  border-right: 0
+  border-left: 0
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  background: url("../img/select-arrow.png") no-repeat
+  background-position: 100% 40%
+  background-size: 7px auto

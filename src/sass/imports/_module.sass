@@ -1,0 +1,214 @@
+.steps
+  font-size: 16px
+  color: $light-color
+  padding: 25px 10px 20px 20px
+  display: flex
+  &__item
+    display: flex
+    justify-content: flex-end
+    flex-grow: 5
+    position: relative
+    &::after
+      content: ""
+      position: absolute
+      right: 30px
+      left: 0
+      top: 50%
+      height: 1px
+      background-color: $light-color
+    &:first-child
+      justify-content: space-between
+      flex-grow: 1
+    &--filled, &--active
+      color: $link-color
+      font-weight: 400
+      &::after
+        background-color: $link-color
+        height: 2px
+        top: calc(50% - 1px)
+    &--filled
+      .steps__img
+        border: 0px solid $link-color
+        background-color: $link-color
+      .steps__svg
+        stroke: #fff
+        fill: #fff
+    &--active
+      .steps__img
+        border: 2px solid $link-color
+      .steps__svg
+        stroke: $link-color
+        fill: $link-color
+  &__item-title
+    margin-top: -7px
+  &__img
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    border: 1px solid $light-color
+    margin-left: 10px
+  &__svg
+    stroke: #8A8A8A
+    fill: #8A8A8A
+
+.shipment
+  font-size: 16px
+  font-weight: 400
+  padding: 5px 12px 20px
+  &__title
+    display: inline-block
+    color: $link-color
+    border-bottom: 1px solid $active-color
+  &__search
+    display: flex
+    flex-direction: row
+    align-items: flex-end
+    color: $light-color
+    margin: 7px 0 35px
+  &__search-company
+    min-width: 300px
+    border-bottom: 1px solid $text-decoration-color
+    position: relative
+    padding: 0 25px 5px 0
+    margin-right: 20px
+  &__search-icon
+    position: absolute
+    right: 3px
+    top: 0
+  &__company-title
+    font-size: 12px
+    margin-bottom: 5px
+  &__company-name
+    min-width: 300px
+    color: $primary-color
+    border-bottom: 1px solid $text-decoration-color
+
+.shipment-dtls
+  display: grid
+  grid-template-columns: 3fr 1fr 2fr 1fr 400px 1fr 1fr 1.5fr 1.5fr 1fr
+  &__head
+    font-size: 14px
+    color: $light-color
+    padding: 8px 10px 10px
+    border-bottom: 1px solid $table-head-border-color
+    &.--right
+      text-align: right
+      padding: 8px 0 10px 10px
+    &:first-child
+      padding: 8px 10px 10px 0px
+  &__item
+    padding: 10px 10px 0
+    &.--cntr
+      display: flex
+      justify-content: flex-end
+    &.--text-cntr
+      text-align: center
+  &__desc
+    grid-column-start: 5
+    border-bottom: 1px solid $text-decoration-color
+    position: relative
+    margin: 10px 25px 25px 10px
+    padding: 0 0 5px 0
+  &__search-icon
+    position: absolute
+    right: 5px
+    bottom: 5px
+  &__nmfc
+    color: $light-color
+    padding-bottom: 5px
+    border-bottom: 1px solid $text-decoration-color
+  &~.shipment-dtls .shipment-dtls__head
+      display: none
+  @include desktop-small
+    grid-template-columns: 2fr 1fr 2fr 1fr 300px 1fr 1fr 1fr 1fr 1fr
+    font-size: 14px
+  @include tab-landscape
+    grid-auto-flow: column
+    grid-template-columns: 100px 1fr 1fr
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto
+    margin-top: 20px
+    &__item
+      padding: 5px 5px
+      align-self: end
+      text-align: center
+      &.--top
+        grid-row-start: 1
+      &.--cntr
+        display: block
+    &__head
+      padding: 3px 5px 3px 0
+      border-bottom: 0px solid $table-head-border-color
+      border-right: 1px solid $table-head-border-color
+      &.--right
+        padding: 3px 5px 3px 0
+        text-align: left
+    &__desc
+      grid-column-start: auto
+      grid-row-start: 5
+      align-self: end
+      padding: 5px 5px
+      margin: 0 15px 0 0
+      text-align: center
+    &~.shipment-dtls .shipment-dtls__head
+      display: block
+.shipment-packing
+  color: $light-color
+  grid-column: 5/11
+  border-top: 1px solid $table-head-border-color
+  margin: 0 0 20px 10px
+  padding: 20px 0 0 0
+  display: flex
+  justify-content: space-between
+  &__item-container
+    flex-grow: 1
+    margin-right: 20px
+    display: flex
+    &:last-child
+      margin-right: 0
+  &__item
+    border-bottom: 1px solid $text-decoration-color
+    width: 100%
+  &__tooltip
+    text-decoration: none
+    border-bottom: 1px dotted
+    color: $link-color
+    margin-left: 5px
+    font-size: 14px
+    align-self: flex-end
+    cursor: pointer
+  @include desktop-small
+    grid-column: 1/11
+  @include tab-landscape
+    grid-column-start: 1
+    grid-row: 11/12
+    margin: 0
+    font-size: 14px
+    &__item-container
+      margin-right: 10px
+.shipment-bottom
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  border-top: 1px solid $table-head-border-color
+  padding-top: 20px
+  &__terms
+    font-size: 14px
+  &__checkbox
+    vertical-align: bottom
+    margin-right: 5px
+  &__terms-link
+    color: $link-color
+    text-decoration: underline
+  &__btn
+    outline: none
+    text-transform: uppercase
+    background-color: $active-color
+    color: #fff
+    width: 220px
+    padding: 15px 0
+    margin-top: 20px
+    border-width: 0
+    border-radius: 2px
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
+    &[disabled]
+      background-color: #eeaa79
